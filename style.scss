@@ -20,7 +20,7 @@ body {
 		display: flex;
 		align-items: center;
 		font-size: xx-large;
-		background-color: white;
+		background-color: whitesmoke;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 		z-index: 10;
 		display: flex;
@@ -462,6 +462,9 @@ body {
 		}
 		.social-icons a.telegram:hover {
 			background-color: #0088cc;
+		}
+		.social-icons a.quora:hover {
+			background-color: #b92b27;
 		}
 		.social-icons a.whatsapp:hover {
 			background-color: #25d366;
