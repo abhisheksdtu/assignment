@@ -12,39 +12,76 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
             integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
             integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+            </script>
     </head>
 
     <body>
 
-        <div class="main-container">
-
-            <header class="header">
-                <div class="logo">
-                    <img src="images/logo.png" alt="">
-                    PEPCODING
-                </div>
-            </header>
-
-            <div class="quote">
-                <blockquote>
-                    "Life is full of risks anyway; why not take them?"
-                </blockquote>
+        <header class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+                PEPCODING
             </div>
+        </header>
 
+        <div class="main-container">
             <section class="heading">
-                <div class="date">
-                    Published on 6th September, 2021
-                </div>
-
                 <div class="main-heading">
                     <span>
                         Sum of Two Arrays
                     </span>
                 </div>
+
+                <div class="blog-details">
+                    <div class="left">
+                        <div class="image">
+                            <img src="images/undraw_male_avatar_323b.svg" alt="">
+                        </div>
+
+                        <div class="user">
+                            <div class="name">
+                                Abhishek Singh
+                            </div>
+                            <div class="date">
+                                September 6, 2021
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="right">
+                        <div class="icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <div class="quote">
+                <blockquote>
+                    <span>"</span>
+                    Life is full of risks anyway; why not take them?
+                    <span>"</span>
+                </blockquote>
+            </div>
 
             <section class="question">
                 <p>
@@ -215,84 +252,100 @@
 
             <section class="time-space">
                 <div class="sub-heading">
-                    TIME &amp; SPACE COMPLEXITY:
+                    Time &amp; Space Complexity:
                 </div>
 
                 <div class="time-complexity">
                     <div class="complexity-heading">
-                        1. TIME COMPLEXITY- O(N)
+
+                        <span>1. TIME COMPLEXITY</span>
+                        - O(N)
                     </div>
 
                     <div class="complexity-content">
-                        &emsp;This time complexity is linear because for and while loops are used.
+                        &emsp;&emsp;This time complexity is linear because for and while loops are used.
                     </div>
                 </div>
 
                 <div class="space-complexity">
                     <div class="complexity-heading">
-                        2. SPACE COMPLEXITY- O(N)
+                        <span>2. SPACE COMPLEXITY</span>
+                        - O(N)
                     </div>
 
                     <div class="complexity-content">
-                        &emsp;As a 1D array is used in the code, therefore space complexity is constant.
+                        &emsp;&emsp;As a 1D array is used in the code, therefore space complexity is constant.
                     </div>
                 </div>
             </section>
 
             <section class="analysis">
-                Your patience has been much valued. Let’s discuss the “WHY” aspect of this
-                question now.
+                <div class="sub-heading">
+                    Analysis
+                </div>
 
-                Be attentive ! The most important part of this article awaits you.
+                <p>
+                    Your patience has been much valued. Let’s discuss the “WHY” aspect of this question now.
+                </p>
 
-                <ol>
-                    <li>
-                        Initial value of carry is kept 0 and it changes in each iteration.
-                    </li>
+                <p>
+                    Be attentive ! The most important part of this article awaits you.
+                </p>
 
-                    <li>
-                        We iterate this code for k&gt;=0 so that all positions of sum[ ] are filled.
-                    </li>
+                <div class="steps">
+                    <ol>
+                        <li>
+                            Initial value of carry is kept 0 and it changes in each iteration.
+                        </li>
 
-                    <li>
-                        Reader, here, ‘d ‘ denotes the digit which is to be placed at kth position in sum[ ]. We
-                        initialize it with the value stored in carry.
-                    </li>
+                        <li>
+                            We iterate this code for k&gt;=0 so that all positions of sum[ ] are filled.
+                        </li>
 
-                    <li>
-                        If i is at a non-negative position (i.e some part of the number is still left to be added) then
-                        the value at i is added to the previous value of ‘d’.
-                    </li>
+                        <li>
+                            Reader, here, ‘d ‘ denotes the digit which is to be placed at kth position in sum[ ]. We
+                            initialize it with the value stored in carry.
+                        </li>
 
-                    <li>
-                        Similarly, if j is non-negative then the value of j is also added to the previous value of ‘d’.
-                    </li>
+                        <li>
+                            If i is at a non-negative position (i.e some part of the number is still left to be added)
+                            then
+                            the value at i is added to the previous value of ‘d’.
+                        </li>
 
-                    <li>
-                        As discussed previously , carry is updated as carry=d/10 and stores the ten’s place value of ‘d’
-                        .
-                    </li>
+                        <li>
+                            Similarly, if j is non-negative then the value of j is also added to the previous value of
+                            ‘d’.
+                        </li>
 
-                    <li>
-                        Also the digit, ‘d’ is updated to d=d%10 to store the one’s place value of ‘d’.
-                    </li>
+                        <li>
+                            As discussed previously , carry is updated as carry=d/10 and stores the ten’s place value of
+                            ‘d’
+                            .
+                        </li>
 
-                    <li>
-                        You need to store ‘d’ in the kth position of the sum[ ] array now.
-                    </li>
+                        <li>
+                            Also the digit, ‘d’ is updated to d=d%10 to store the one’s place value of ‘d’.
+                        </li>
 
-                    <li>
-                        At last , decrement the values of i , j and k .
-                    </li>
-                </ol>
+                        <li>
+                            You need to store ‘d’ in the kth position of the sum[ ] array now.
+                        </li>
 
-                We can’t stress you enough to refer to the Youtube video
-                [5:30 -9:20].
-                Sum of two Arrays Solution video
+                        <li>
+                            At last , decrement the values of i , j and k .
+                        </li>
+                    </ol>
+
+                </div>
+
+                <p>
+                    We can’t stress you enough to refer to the Youtube video
+                </p>
+
 
                 <div class="youtube-video">
                     <div class="iframe">
-
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/BzJK1zNXwcU?start=330"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -302,15 +355,60 @@
                 </div>
 
             </section>
+
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="row1 dj">
+                        <div class="fl1">
+                            <div class="fheading">About</div>
+                            <div class="fdetails"> "The Great Indian Coding <br> Renaissance"</div>
+                            <div class="fheading social">Social Links</div>
+                            <div class="fdetails">
+                                <a href="https://www.facebook.com/pepcoding/">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/pepcoding">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.instagram.com/pepcoding/">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/pepcoding-education/">
+                                    <i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="fl2">
+                            <div class="fheading">Links</div>
+                            <ul style="    padding-left: 15px;">
+                                <li><a href="#container">Top</a></li>
+                                <li>
+                                    <a href="https://www.pepcoding.com">Home</a>
+                                </li>
+                                <li><a href="https://www.pepcoding.com/resources/">Resources</a></li>
+                                <li><a href="https://www.pepcoding.com/contactus">Contact</a></li>
+                            </ul>
+
+                        </div>
+                        <div class="fl3">
+                            <div class="fheading">Have a Question ?</div>
+                            <div class="fdetails-phone">+91 11 4019 4461
+                                <i class="fas fa-phone-alt" id="f-phone-i"></i>
+                            </div>
+                            <div class="fdetails-email"> <a
+                                    href="mailto:contact@pepcoding.com">contact@pepcoding.com</a> <i
+                                    class="fas fa-envelope" id="f-email-i"></i> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </footer>
+
         </div>
 
 
-        <!-- <link rel="stylesheet" href="/path/to/styles/default.css">
-        <script src="/path/to/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> -->
-
-
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js">
+        </script>
         <script src="./script.js"></script>
         <script>
             hljs.initHighlightingOnLoad();

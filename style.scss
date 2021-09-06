@@ -7,6 +7,24 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	overflow-x: hidden;
+	width: 100vw;
+
+	.header {
+		padding: 20px;
+		width: 100%;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		background-color: #efefef;
+
+		.logo {
+			position: fixed;
+
+			img {
+				width: 30px;
+			}
+		}
+	}
 
 	.main-container {
 		width: 100vw;
@@ -31,8 +49,10 @@ body {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			.iframe {
-				border-radius: 5px;
+			padding-top: 1rem;
+
+			iframe {
+				border-radius: 10px;
 			}
 		}
 
@@ -65,22 +85,6 @@ body {
 			text-align: justify;
 		}
 
-		.header {
-			padding: 20px;
-			width: 100%;
-			height: 50px;
-			display: flex;
-			align-items: center;
-
-			.logo {
-				position: fixed;
-
-				img {
-					width: 30px;
-				}
-			}
-		}
-
 		.quote {
 			font-family: 'Special Elite', cursive;
 			color: black;
@@ -88,6 +92,11 @@ body {
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			padding-top: 1rem;
+
+			span {
+				font-size: 2rem;
+			}
 
 			blockquote {
 				font-weight: 700;
@@ -97,30 +106,96 @@ body {
 				position: relative;
 				margin: 0;
 				padding: 0.5rem;
+				text-align: center;
 			}
 		}
 
 		.heading {
-			.date {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				color: rgb(29, 25, 41);
-				font-size: large;
-			}
-
 			.main-heading {
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				font-family: fell, Georgia, Cambria, 'Times New Roman', Times, serif;
 				font-size: 3rem;
-				font-weight: bold;
+				font-weight: 200;
 				width: 100%;
 				margin: 1rem 0;
+				letter-spacing: -0.6px;
+				line-height: 60px;
+			}
 
-				span {
-					width: 55%;
-					text-align: center;
+			.blog-details {
+				display: flex;
+				width: 100%;
+				justify-content: space-between;
+
+				@media (min-width: 768px) {
+				}
+
+				.left {
+					display: flex;
+
+					.image {
+						padding-right: 20px;
+
+						img {
+							width: 60px;
+						}
+					}
+
+					.user {
+						display: flex;
+						flex-direction: column;
+						display: flex;
+						font-size: 14px;
+						color: #333;
+
+						.name {
+							height: 30px;
+							display: flex;
+							align-items: center;
+							font-size: 16px;
+						}
+
+						.date {
+							display: flex;
+							align-items: center;
+							height: 30px;
+							color: gray;
+
+							&:hover {
+								text-decoration: underline;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+
+				.right {
+					display: flex;
+					// justify-content: center;
+
+					.icon {
+						height: 30px;
+						width: 30px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						background-color: black;
+						border-radius: 50%;
+						margin-right: 10px;
+						transition: all 0.3s;
+
+						&:hover {
+							cursor: pointer;
+							transform: scale(1.1);
+						}
+
+						i {
+							color: white;
+							transition: all 0.2s;
+						}
+					}
 				}
 			}
 		}
@@ -161,10 +236,50 @@ body {
 		}
 
 		.time-space {
-			.complexity-heading {
+			.time-complexity,
+			.space-complexity {
+				line-height: 2rem;
 			}
 
-			.complexity-content {
+			.complexity-heading {
+				span {
+					font-weight: bold;
+				}
+			}
+		}
+
+		.analysis {
+			margin-top: -1rem;
+
+			.steps {
+				width: 100%;
+				background-color: lightgray;
+				padding-top: 1px;
+				padding-right: 1rem;
+				border-radius: 5px;
+
+				ol {
+					li {
+						padding-bottom: 1rem;
+					}
+				}
+			}
+		}
+	}
+
+	.footer {
+		background-color: #222;
+		width: 100%;
+		padding: 10%;
+		min-height: 360px;
+		height: 470px;
+	}
+
+	@media (max-width: 768px) {
+		.blog-details {
+			flex-direction: column;
+			.right {
+				padding-top: 1rem;
 			}
 		}
 	}
