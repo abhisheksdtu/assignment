@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sum of Two Arrays Editorial</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+
+        <div class="main-container">
+
+            <header class="header">
+                <div class="logo">
+                    <img src="images/logo.png" alt="">
+                    PEPCODING
+                </div>
+            </header>
+
+            <div class="quote">
+                <blockquote>
+                    "Life is full of risks anyway; why not take them?"
+                </blockquote>
+            </div>
+
+            <section class="heading">
+                <div class="date">
+                    Published on 6th September, 2021
+                </div>
+
+                <div class="main-heading">
+                    <span>
+                        Sum of Two Arrays
+                    </span>
+                </div>
+            </section>
+
+            <section class="question">
+                <p>
+                    Hey coder! We are here to help you and be your coding buddy. Let’s go through the step by step
+                    explanation of this question together. This is going to be one hell of a ride!
+                </p>
+            </section>
+
+            <section class="problem">
+                <h3>
+                    Problem Discussion:
+                </h3>
+
+                <div class="details">
+                    <p>
+                        Let us guide you through the given problem.
+                    </p>
+                    <p>
+                        You are given 2 numbers in the form of arrays.
+                    </p>
+                    <p>
+                        Now we know what mischief must be cooking in your mind. No, converting arrays into numbers and
+                        adding them is not possible as the length of arrays can be very lengthy.
+                    </p>
+
+                    <p>
+                        Reader, suppose we are given the following input : 31075 and 111111 , then notice the places of
+                        the digits when adding :
+                    </p>
+
+                    <figure class="img">
+                        <img src="images/fig1.png" alt="Figure 1">
+
+                        <figcaption class="img-caption">
+                            Figure 1
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        We also suggest you watch the question video to understand it better.
+                    </p>
+
+                    <div class="youtube-video">
+                        <div class="iframe">
+                            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=aSb29e8OoZs"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="approach">
+                <div class="sub-heading">
+                    Approach
+                </div>
+
+                <p>
+                    For the explanation we take the two numbers as 93468 and 1988 .We declare a new array (say sum[ ])
+                    whose length is the larger of the two input array
+                    lengths.
+                </p>
+
+                <div class="img">
+                    <img src="images/fig2.png" alt="Figure 2">
+                    <figcaption class="img-caption">
+                        Figure 2
+                    </figcaption>
+                </div>
+
+                <p>
+                    We put pointers i ,j and k and the last place of all the arrays.
+                </p>
+
+                <p>
+                    In the first iteration, we add the values at i and j and store (i + j) %10 in k. Then we take (i +
+                    j) / 10 in carry (denoted by ‘c’) and decrease i , j and k by one place for all the subsequent
+                    iterations as follows:
+                </p>
+
+                <div class="img">
+                    <img src="images/fig3.png" alt="Figure 3">
+                    <figcaption class="img-caption">
+                        Figure 3
+                    </figcaption>
+                </div>
+
+                <p>
+                    When j pointer reaches -1 position , we add only value at i and value of carry and store it in the
+                    kth position of the sum array.
+                </p>
+
+                <p>
+                    Now reader, in case the carry at last position of i (i.e at 9) was 1 , then the sum would have been
+                    10. So, in such a case we print ‘1’ by itself, store ‘0’ at kth position and then print the entire
+                    sum array.
+                </p>
+
+                <p>
+                    We highly recommend you to refer to Youtube video Sum of two arrays[0:46- 3:19] for detailed
+                    explanation .
+                </p>
+
+                <div class="youtube-video">
+                    <div class="iframe">
+                        <iframe width="560" height="315" src="https://youtu.be/BzJK1zNXwcU?t=46"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="code">
+                <div class="sub-heading">
+                    Code
+                </div>
+                <pre>
+                <code class="language-java" contenteditable="true" id="runableCode">
+                    import java.io.*;
+                    import java.util.*;
+
+                    public class Main {
+                        public static void main(String[] args) throws Exception {
+                        Scanner scn = new Scanner(System.in);
+
+                        int n1 = scn.nextInt();
+                        int[] a1 = new int[n1];
+
+                        for (int i = 0; i < n1; i++) { 
+                            a1[i]=scn.nextInt(); 
+                        } 
+                        
+                        int n2=scn.nextInt(); 
+                        int[] a2=new int[n2]; 
+                        for (int i=0; i < n2;i++) { 
+                            a2[i]=scn.nextInt(); 
+                        } 
+
+                        int n; 
+                        if (n1> n2) {
+                            n = n1;
+                        } else {
+                            n = n2;
+                        }
+
+                        int i = n1 - 1, j = n2 - 1;
+                        int[] sum = new int[n];
+                        int carry = 0; // 1
+                        int k = n - 1; // 2
+
+                        while (k >= 0) {
+                            int d = carry; // 3
+                            if (i >= 0) { // 4
+                                d += a1[i];
+                            }
+                            
+                            if (j >= 0) { // 5
+                                d += a2[j];
+                            }
+                            
+                            carry = d / 10; // 6
+                            d = d % 10; // 7
+                            sum[k] = d; // 8
+                            i--;
+                            j--; // 9
+                            k--;
+                        }
+
+                        if (carry != 0) {
+                            System.out.print(carry);
+                        }
+
+                        for (int y = 0; y < n; y++) { 
+                            System.out.println(sum[y]); 
+                        } 
+                    } 
+                }
+                </code>
+
+                <div class="submitBtn">RUN</div>
+                <div class="output">
+                    <div></div>
+                </div>
+                </pre>
+            </section>
+
+            <section class="time-space">
+                <div class="sub-heading">
+                    TIME &amp; SPACE COMPLEXITY:
+                </div>
+
+                <div class="time-complexity">
+                    <div class="complexity-heading">
+                        1. TIME COMPLEXITY- O(N)
+                    </div>
+
+                    <div class="complexity-content">
+                        &emsp;This time complexity is linear because for and while loops are used.
+                    </div>
+                </div>
+
+                <div class="space-complexity">
+                    <div class="complexity-heading">
+                        2. SPACE COMPLEXITY- O(N)
+                    </div>
+
+                    <div class="complexity-content">
+                        &emsp;As a 1D array is used in the code, therefore space complexity is constant.
+                    </div>
+                </div>
+            </section>
+
+            <section class="analysis">
+                Your patience has been much valued. Let’s discuss the “WHY” aspect of this
+                question now.
+
+                Be attentive ! The most important part of this article awaits you.
+
+                <ol>
+                    <li>
+                        Initial value of carry is kept 0 and it changes in each iteration.
+                    </li>
+
+                    <li>
+                        We iterate this code for k&gt;=0 so that all positions of sum[ ] are filled.
+                    </li>
+
+                    <li>
+                        Reader, here, ‘d ‘ denotes the digit which is to be placed at kth position in sum[ ]. We
+                        initialize it with the value stored in carry.
+                    </li>
+
+                    <li>
+                        If i is at a non-negative position (i.e some part of the number is still left to be added) then
+                        the value at i is added to the previous value of ‘d’.
+                    </li>
+
+                    <li>
+                        Similarly, if j is non-negative then the value of j is also added to the previous value of ‘d’.
+                    </li>
+
+                    <li>
+                        As discussed previously , carry is updated as carry=d/10 and stores the ten’s place value of ‘d’
+                        .
+                    </li>
+
+                    <li>
+                        Also the digit, ‘d’ is updated to d=d%10 to store the one’s place value of ‘d’.
+                    </li>
+
+                    <li>
+                        You need to store ‘d’ in the kth position of the sum[ ] array now.
+                    </li>
+
+                    <li>
+                        At last , decrement the values of i , j and k .
+                    </li>
+                </ol>
+
+                We can’t stress you enough to refer to the Youtube video
+                [5:30 -9:20].
+                Sum of two Arrays Solution video
+            </section>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="./script.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
+
+    </body>
+
+</html>
