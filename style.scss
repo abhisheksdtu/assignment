@@ -394,6 +394,8 @@ body {
 		}
 		.copyright-text {
 			margin: 0;
+			display: flex;
+			align-items: center;
 		}
 		@media (max-width: 991px) {
 			.site-footer [class^='col-'] {
@@ -454,6 +456,12 @@ body {
 		}
 		.social-icons a.facebook:hover {
 			background-color: #3b5998;
+		}
+		.social-icons a.youtube:hover {
+			background-color: #ff0000;
+		}
+		.social-icons a.telegram:hover {
+			background-color: #0088cc;
 		}
 		.social-icons a.whatsapp:hover {
 			background-color: #25d366;
@@ -537,6 +545,12 @@ body {
 			.site-footer {
 				width: 100vw;
 			}
+			.copyright-text {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
 			.row {
 				flex-direction: column;
 				width: 100%;
