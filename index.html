@@ -7,6 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sum of Two Arrays Editorial</title>
         <link rel="stylesheet" href="css/style.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+            integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
 
     <body>
@@ -46,9 +54,9 @@
             </section>
 
             <section class="problem">
-                <h3>
+                <div class="sub-heading">
                     Problem Discussion:
-                </h3>
+                </div>
 
                 <div class="details">
                     <p>
@@ -67,13 +75,13 @@
                         the digits when adding :
                     </p>
 
-                    <figure class="img">
+                    <div class="img">
                         <img src="images/fig1.png" alt="Figure 1">
 
                         <figcaption class="img-caption">
                             Figure 1
                         </figcaption>
-                    </figure>
+                    </div>
 
                     <p>
                         We also suggest you watch the question video to understand it better.
@@ -81,11 +89,10 @@
 
                     <div class="youtube-video">
                         <div class="iframe">
-                            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=aSb29e8OoZs"
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BzJK1zNXwcU"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
+                                allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -141,16 +148,6 @@
                     We highly recommend you to refer to Youtube video Sum of two arrays[0:46- 3:19] for detailed
                     explanation .
                 </p>
-
-                <div class="youtube-video">
-                    <div class="iframe">
-                        <iframe width="560" height="315" src="https://youtu.be/BzJK1zNXwcU?t=46"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
             </section>
 
 
@@ -159,73 +156,61 @@
                     Code
                 </div>
                 <pre>
-                <code class="language-java" contenteditable="true" id="runableCode">
-                    import java.io.*;
-                    import java.util.*;
-
-                    public class Main {
-                        public static void main(String[] args) throws Exception {
-                        Scanner scn = new Scanner(System.in);
-
-                        int n1 = scn.nextInt();
-                        int[] a1 = new int[n1];
-
-                        for (int i = 0; i < n1; i++) { 
-                            a1[i]=scn.nextInt(); 
-                        } 
-                        
-                        int n2=scn.nextInt(); 
-                        int[] a2=new int[n2]; 
-                        for (int i=0; i < n2;i++) { 
-                            a2[i]=scn.nextInt(); 
-                        } 
-
-                        int n; 
-                        if (n1> n2) {
-                            n = n1;
-                        } else {
-                            n = n2;
-                        }
-
-                        int i = n1 - 1, j = n2 - 1;
-                        int[] sum = new int[n];
-                        int carry = 0; // 1
-                        int k = n - 1; // 2
-
-                        while (k >= 0) {
-                            int d = carry; // 3
-                            if (i >= 0) { // 4
-                                d += a1[i];
-                            }
-                            
-                            if (j >= 0) { // 5
-                                d += a2[j];
-                            }
-                            
-                            carry = d / 10; // 6
-                            d = d % 10; // 7
-                            sum[k] = d; // 8
-                            i--;
-                            j--; // 9
-                            k--;
-                        }
-
-                        if (carry != 0) {
-                            System.out.print(carry);
-                        }
-
-                        for (int y = 0; y < n; y++) { 
-                            System.out.println(sum[y]); 
-                        } 
-                    } 
-                }
-                </code>
-
+                    <code class="language-java code-section" contenteditable="true" id="runableCode">
+    import java.io.*;
+    import java.util.*;
+    public class Main {
+        public static void main(String[] args) throws Exception {
+            Scanner scn = new Scanner(System.in);
+            int n1 = scn.nextInt();
+            int[] a1 = new int[n1];
+            for (int i = 0; i < n1; i++) { 
+                a1[i]=scn.nextInt(); 
+            }                         
+            int n2=scn.nextInt(); 
+            int[] a2=new int[n2]; 
+            for (int i=0; i < n2;i++) { 
+                a2[i]=scn.nextInt(); 
+            } 
+            int n; 
+            if (n1> n2) {
+                n = n1;
+            } else {
+                n = n2;
+            }
+            int i = n1 - 1, j = n2 - 1;
+            int[] sum = new int[n];
+            int carry = 0; // 1
+            int k = n - 1; // 2
+            while (k >= 0) {
+                int d = carry; // 3
+                if (i >= 0) { // 4
+                    d += a1[i];
+                }                            
+                if (j >= 0) { // 5
+                    d += a2[j];
+                }                            
+                carry = d / 10; // 6
+                d = d % 10; // 7
+                sum[k] = d; // 8
+                i--;
+                j--; // 9
+                k--;
+            }
+            if (carry != 0) {
+                System.out.print(carry);
+            }
+            for (int y = 0; y < n; y++) { 
+                System.out.println(sum[y]); 
+            } 
+        } 
+    }
+                    </code>
+                </pre>
                 <div class="submitBtn">RUN</div>
                 <div class="output">
                     <div></div>
                 </div>
-                </pre>
             </section>
 
             <section class="time-space">
@@ -304,8 +289,26 @@
                 We can’t stress you enough to refer to the Youtube video
                 [5:30 -9:20].
                 Sum of two Arrays Solution video
+
+                <div class="youtube-video">
+                    <div class="iframe">
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BzJK1zNXwcU?start=330"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
             </section>
         </div>
+
+
+        <!-- <link rel="stylesheet" href="/path/to/styles/default.css">
+        <script src="/path/to/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> -->
+
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
         <script src="./script.js"></script>
