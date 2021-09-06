@@ -87,6 +87,7 @@ body {
 			img {
 				display: flex;
 				justify-content: center;
+				width: 100%;
 			}
 
 			&-caption {
@@ -140,6 +141,7 @@ body {
 				margin-top: 5rem;
 				letter-spacing: -0.6px;
 				line-height: 60px;
+				text-align: center;
 			}
 
 			.blog-details {
@@ -215,6 +217,14 @@ body {
 						}
 					}
 				}
+			}
+		}
+
+		.problem {
+			width: 100%;
+
+			.details {
+				width: 100%;
 			}
 		}
 
@@ -445,8 +455,8 @@ body {
 		.social-icons a.facebook:hover {
 			background-color: #3b5998;
 		}
-        .social-icons a.whatsapp:hover {
-			background-color: #25D366;
+		.social-icons a.whatsapp:hover {
+			background-color: #25d366;
 		}
 		.social-icons a.twitter:hover {
 			background-color: #00aced;
@@ -455,7 +465,14 @@ body {
 			background-color: #007bb6;
 		}
 		.social-icons a.instagram:hover {
-			background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+			background: linear-gradient(
+				45deg,
+				#f09433 0%,
+				#e6683c 25%,
+				#dc2743 50%,
+				#cc2366 75%,
+				#bc1888 100%
+			);
 		}
 		@media (max-width: 767px) {
 			.social-icons li.title {
@@ -468,9 +485,78 @@ body {
 
 	@media (max-width: 768px) {
 		.blog-details {
+			.right {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		.youtube-video {
+			iframe {
+				width: 460px;
+			}
+
+			&:last-child {
+				padding-bottom: 1.5rem;
+			}
+		}
+	}
+
+	@media (max-width: 700px) {
+		.blog-details {
 			flex-direction: column;
 			.right {
+				display: flex;
 				padding-top: 1rem;
+			}
+		}
+
+		.youtube-video {
+			iframe {
+				width: 400px;
+			}
+
+			&:last-child {
+				padding-bottom: 1.5rem;
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+		.youtube-video {
+			iframe {
+				width: 300px;
+			}
+
+			&:last-child {
+				padding-bottom: 1.5rem;
+			}
+		}
+
+		.footer {
+			.site-footer {
+				width: 100vw;
+			}
+			.row {
+				flex-direction: column;
+				width: 100%;
+
+				.col {
+					box-sizing: border-box;
+					padding: 0 2rem;
+					overflow-x: hidden;
+					width: 100%;
+					line-break: auto;
+					border-bottom: 1px solid #aaa;
+					padding-top: 1rem;
+
+					&:first-child {
+						padding-top: 0;
+					}
+					&:last-child {
+						border: none;
+					}
+				}
 			}
 		}
 	}

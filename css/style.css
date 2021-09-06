@@ -21,7 +21,7 @@ body .main-container p { overflow-wrap: break-word; }
 
 body .main-container .img { display: flex; flex-direction: column; justify-content: center; align-items: center; }
 
-body .main-container .img img { display: flex; justify-content: center; }
+body .main-container .img img { display: flex; justify-content: center; width: 100%; }
 
 body .main-container .img-caption { display: block; font-style: italic; text-align: center; }
 
@@ -33,7 +33,7 @@ body .main-container .quote span { font-size: 2rem; }
 
 body .main-container .quote blockquote { font-weight: 700; font-size: 22px; max-width: 600px; line-height: 1.4; position: relative; margin: 0; padding: 0.5rem; text-align: center; }
 
-body .main-container .heading .main-heading { display: flex; justify-content: center; align-items: center; font-family: fell, Georgia, Cambria, 'Times New Roman', Times, serif; font-size: 3rem; font-weight: 200; width: 100%; margin: 1rem 0; margin-top: 5rem; letter-spacing: -0.6px; line-height: 60px; }
+body .main-container .heading .main-heading { display: flex; justify-content: center; align-items: center; font-family: fell, Georgia, Cambria, 'Times New Roman', Times, serif; font-size: 3rem; font-weight: 200; width: 100%; margin: 1rem 0; margin-top: 5rem; letter-spacing: -0.6px; line-height: 60px; text-align: center; }
 
 body .main-container .heading .blog-details { display: flex; width: 100%; justify-content: space-between; }
 
@@ -58,6 +58,10 @@ body .main-container .heading .blog-details .right .icon { height: 30px; width: 
 body .main-container .heading .blog-details .right .icon:hover { cursor: pointer; transform: scale(1.1); }
 
 body .main-container .heading .blog-details .right .icon i { color: white; transition: all 0.2s; }
+
+body .main-container .problem { width: 100%; }
+
+body .main-container .problem .details { width: 100%; }
 
 body .main-container .code pre { white-space: pre; }
 
@@ -144,7 +148,7 @@ body .footer .social-icons.size-sm a { line-height: 34px; height: 34px; width: 3
 
 body .footer .social-icons a.facebook:hover { background-color: #3b5998; }
 
-body .footer .social-icons a.whatsapp:hover { background-color: #25D366; }
+body .footer .social-icons a.whatsapp:hover { background-color: #25d366; }
 
 body .footer .social-icons a.twitter:hover { background-color: #00aced; }
 
@@ -154,5 +158,19 @@ body .footer .social-icons a.instagram:hover { background: linear-gradient(45deg
 
 @media (max-width: 767px) { body .footer .social-icons li.title { display: block; margin-right: 0; font-weight: 600; } }
 
-@media (max-width: 768px) { body .blog-details { flex-direction: column; }
-  body .blog-details .right { padding-top: 1rem; } }
+@media (max-width: 768px) { body .blog-details .right { display: flex; align-items: center; }
+  body .youtube-video iframe { width: 460px; }
+  body .youtube-video:last-child { padding-bottom: 1.5rem; } }
+
+@media (max-width: 700px) { body .blog-details { flex-direction: column; }
+  body .blog-details .right { display: flex; padding-top: 1rem; }
+  body .youtube-video iframe { width: 400px; }
+  body .youtube-video:last-child { padding-bottom: 1.5rem; } }
+
+@media (max-width: 600px) { body .youtube-video iframe { width: 300px; }
+  body .youtube-video:last-child { padding-bottom: 1.5rem; }
+  body .footer .site-footer { width: 100vw; }
+  body .footer .row { flex-direction: column; width: 100%; }
+  body .footer .row .col { box-sizing: border-box; padding: 0 2rem; overflow-x: hidden; width: 100%; line-break: auto; border-bottom: 1px solid #aaa; padding-top: 1rem; }
+  body .footer .row .col:first-child { padding-top: 0; }
+  body .footer .row .col:last-child { border: none; } }
